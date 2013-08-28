@@ -78,12 +78,11 @@
 			</div>
 
 		</div>
-		<audio src="media/background.mp3" autoplay></audio>
+		<audio src="media/background.mp3" autoplay id='song'></audio>
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
 
 		<script>
-
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
@@ -100,6 +99,13 @@
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 				]
 			});
+
+			setTimeout(function() {
+				var audio = document.getElementById('song');
+				if (audio.paused || audio.ended || 0 < audio.currentTime) {
+					audio.play();
+				}
+			}, 1000);
 
 		</script>
 
